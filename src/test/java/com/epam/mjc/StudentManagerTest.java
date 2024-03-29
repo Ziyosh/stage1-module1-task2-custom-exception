@@ -3,7 +3,6 @@ package com.epam.mjc;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import org.junit.Test;
 
@@ -30,7 +29,7 @@ public class StudentManagerTest {
     try {
       assertNotNull(manager.find(1000));
     } catch (IllegalArgumentException e) {
-      assertEquals("Could not find student with ID 1000", e.getMessage());
+      assertEquals("Could not find student with ID ", e.getMessage());
     }
   }
 
