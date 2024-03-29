@@ -9,15 +9,17 @@ public class StudentManager {
     if (student != null) {
       return student;
     }
-      throw new StudentNotFoundException("Couldn't find student with ID" + studentID);
+      throw new StudentNotFoundException("Couldn't find student with ID " + studentID);
   }
 
   public static void main(String[] args) {
 
     StudentManager manager = new StudentManager();
+    int invalidNumber=1000;
     try {
       for (int i = 0; i < IDs.length; i++) {
         Student student = manager.find(IDs[i]);
+        manager.find(invalidNumber);
         System.out.println("Student name " + student.getName());
       }
     }catch (StudentNotFoundException e){
