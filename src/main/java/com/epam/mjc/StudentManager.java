@@ -5,9 +5,10 @@ public class StudentManager {
   private static final long[] IDs = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
   public Student find(long studentID) throws StudentNotFoundException {
-    Student student = Student.getValueOf(studentID);
-    if (student != null) {
-      return student;
+    for(long student : IDs) {
+      if (student == studentID) {
+        return Student.getValueOf(studentID);
+      }
     }
       throw new StudentNotFoundException("Couldn't find student with ID " + studentID);
   }
@@ -17,8 +18,13 @@ public class StudentManager {
     StudentManager manager = new StudentManager();
     try {
       for (int i = 0; i < IDs.length; i++) {
-        Student student = manager.find(IDs[i]);
-        System.out.println("Student name " + student.getName());
+        long studentID = IDs[i];
+        Student student = manager.find(studentID);
+        if(student != null) {
+          System.out.println("Student name " + student.getName());
+        }else {
+          System.out.println("Couldn't find student with ID " + studentID);
+        }
       }
     }catch (StudentNotFoundException e){
       System.out.println(e.getMessage());
