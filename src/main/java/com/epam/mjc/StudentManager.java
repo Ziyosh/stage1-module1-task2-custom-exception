@@ -10,9 +10,9 @@ public class StudentManager {
         return Student.getValueOf(studentID);
       }
     }
-    throw new StudentNotFoundException("Couldn't find student with ID " + studentID);
+    throw new StudentNotFoundException("Could not find student with ID " + studentID);
   }
-  
+
   public static void main(String[] args) {
 
     StudentManager manager = new StudentManager();
@@ -22,7 +22,7 @@ public class StudentManager {
         if(student != null) {
           System.out.println("Student name " + student.getName());
         }else {
-          System.out.println("Couldn't find student with ID " + studentID);
+          System.out.println("Could not find student with ID " + studentID);
         }
       }
     }catch (StudentNotFoundException e){
