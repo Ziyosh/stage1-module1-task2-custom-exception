@@ -17,8 +17,7 @@ public class StudentManager {
 
     StudentManager manager = new StudentManager();
     try {
-      for (int i = 0; i < IDs.length; i++) {
-        long studentID = IDs[i];
+      for (long studentID: IDs) {
         Student student = manager.find(studentID);
         if(student != null) {
           System.out.println("Student name " + student.getName());
